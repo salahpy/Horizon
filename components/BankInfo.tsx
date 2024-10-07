@@ -10,7 +10,7 @@ import {
   getAccountTypeColors,
 } from "@/lib/utils"
 
-const BankInfo = ({ account, appwriteItemId, type }: BankInfoProps) => {
+const BankInfo = ({ account , type }: BankInfoProps) => {
   const router = useRouter()
   const searchParams = useSearchParams()
 
@@ -19,7 +19,7 @@ const BankInfo = ({ account, appwriteItemId, type }: BankInfoProps) => {
     const newUrl = formUrlQuery({
       params: searchParams.toString(),
       key: "id",
-      value: account?.appwriteItemId,
+      value: "",
     })
     router.push(newUrl, { scroll: false })
   }
@@ -30,7 +30,7 @@ const BankInfo = ({ account, appwriteItemId, type }: BankInfoProps) => {
     <div
       onClick={handleBankChange}
       className={cn(`bank-info ${colors.bg}`, {
-        "shadow-sm border-blue-700": type === "card" && isActive,
+        "shadow-sm border-blue-700": type === "card" ,
         "rounded-xl": type === "card",
         "hover:shadow-sm cursor-pointer": type === "card",
       })}

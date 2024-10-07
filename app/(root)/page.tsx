@@ -4,7 +4,7 @@ import RightSidebar from '@/components/RightSidebar';
 import TotalBalanceBox from '@/components/TotalBalanceBox';
 import { demoUser, demoAccounts, demoTransactions } from '@/lib/demoData';
 
-const Home = async ({ searchParams: { id, page } }: SearchParamProps) => {
+const Home = async ({ searchParams: { page } }: SearchParamProps) => {
   const currentPage = Number(page as string) || 1;
   const totalCurrentBalance = demoAccounts.reduce((acc, account) => acc + account.currentBalance, 0);
 

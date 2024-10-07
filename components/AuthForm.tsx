@@ -38,7 +38,7 @@ const AuthForm = ({ type }: { type: string }) => {
     },
   })
 
-  const onSubmit = async (data: z.infer<typeof formSchema>) => {
+  const onSubmit = async () => {
     try {
       setShowDialog(true)
     } catch (error) {
