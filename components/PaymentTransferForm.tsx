@@ -88,7 +88,7 @@ const PaymentTransferForm = ({ accounts }: PaymentTransferFormProps) => {
           )}
         />
 
-        <FormField
+        {/* <FormField
           control={form.control}
           name="name"
           render={({ field }) => (
@@ -116,7 +116,7 @@ const PaymentTransferForm = ({ accounts }: PaymentTransferFormProps) => {
               </div>
             </FormItem>
           )}
-        />
+        /> */}
 
         <div className="payment-transfer_form-details">
           <h2 className="text-18 font-semibold text-gray-900">
