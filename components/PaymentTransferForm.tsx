@@ -16,7 +16,7 @@ import {
   FormMessage,
 } from "./ui/form"
 import { Input } from "./ui/input"
-// import { Textarea } from "./ui/textarea"
+import { Textarea } from "./ui/textarea"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -33,6 +33,7 @@ const formSchema = z.object({
   amount: z.string().min(4, "Amount is too short"),
   senderBank: z.string().min(4, "Please select a valid bank account"),
   sharableId: z.string().min(1, "Please select a valid sharable Id"),
+  name: z.string().optional(),
 })
 
 const PaymentTransferForm = ({ accounts }: PaymentTransferFormProps) => {
@@ -45,6 +46,7 @@ const PaymentTransferForm = ({ accounts }: PaymentTransferFormProps) => {
       amount: "",
       senderBank: "",
       sharableId: "",
+      name: "",
     },
   })
 
@@ -88,7 +90,7 @@ const PaymentTransferForm = ({ accounts }: PaymentTransferFormProps) => {
           )}
         />
 
-        {/* <FormField
+        <FormField
           control={form.control}
           name="name"
           render={({ field }) => (
@@ -116,7 +118,7 @@ const PaymentTransferForm = ({ accounts }: PaymentTransferFormProps) => {
               </div>
             </FormItem>
           )}
-        /> */}
+        />
 
         <div className="payment-transfer_form-details">
           <h2 className="text-18 font-semibold text-gray-900">
