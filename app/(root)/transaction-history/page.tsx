@@ -23,7 +23,6 @@ const TransactionHistory = async () => {
               <BankTabItem
                 key={account.id}
                 account={account}
-                appwriteItemId={"1"}
               />
             </TabsTrigger>
           ))}
