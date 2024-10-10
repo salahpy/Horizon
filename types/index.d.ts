@@ -160,7 +160,6 @@ declare interface BankDropdownProps {
 
 declare interface BankTabItemProps {
   account: Account
-  appwriteItemId?: string
 }
 
 declare interface TotalBalanceBoxProps {
