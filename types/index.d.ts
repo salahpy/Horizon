@@ -185,7 +185,6 @@ declare interface SiderbarProps {
 declare interface RecentTransactionsProps {
   accounts: Account[]
   transactions: Transaction[]
-  id: string
   page: number
 }
 

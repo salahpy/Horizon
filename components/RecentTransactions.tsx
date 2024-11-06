@@ -8,7 +8,6 @@ import { Pagination } from './Pagination'
 const RecentTransactions = ({
   accounts,
   transactions = [],
-  id,
   page = 1,
 }: RecentTransactionsProps) => {
   const rowsPerPage = 10;

@@ -29,7 +29,6 @@ const Home = async ({ searchParams: { page } }: SearchParamProps) => {
         <RecentTransactions 
           accounts={demoAccounts}
           transactions={demoTransactions}
-          id={demoTransactions[0].id}
           page={currentPage}
         />
       </div>
