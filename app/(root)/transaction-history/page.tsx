@@ -16,7 +16,7 @@ const TransactionHistory = async () => {
           subtext="See your bank details and transactions."
         />
       </div>
-      <Tabs defaultValue={"1"} className="w-full">
+      <Tabs defaultValue='account-1' className="w-full">
         <TabsList className="recent-transactions-tablist">
           {demoAccounts.map((account: Account) => (
             <TabsTrigger key={account.id} value={account.id}>

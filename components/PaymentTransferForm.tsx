@@ -141,7 +141,7 @@ const PaymentTransferForm = ({ accounts }: PaymentTransferFormProps) => {
                 <div className="flex w-full flex-col">
                   <FormControl>
                     <Input
-                      placeholder="ex: johndoe@gmail.com"
+                      placeholder="ex: ls_nacef@esi.dz"
                       className="input-class"
                       {...field}
                     />
@@ -189,7 +189,7 @@ const PaymentTransferForm = ({ accounts }: PaymentTransferFormProps) => {
                 <div className="flex w-full flex-col">
                   <FormControl>
                     <Input
-                      placeholder="ex: 5.00"
+                      placeholder="ex: 1000"
                       className="input-class"
                       {...field}
                     />
