@@ -34,9 +34,9 @@ const MobileNav = ({ user }: MobileNavProps) => {
               src="/icons/logo.svg"
               width={34}
               height={34}
-              alt="Horizon logo"
+              alt="QuantumPay logo"
             />
-            <h1 className="text-26 font-ibm-plex-serif font-bold text-black-1">Horizon</h1>
+            <h1 className="text-24 font-sans font-bold text-black-1">QuantumPay</h1>
           </Link>
           <div className="mobilenav-sheet">
             <SheetClose asChild>

@@ -17,16 +17,8 @@ import {
 } from "./ui/form"
 import { Input } from "./ui/input"
 import { Textarea } from "./ui/textarea"
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from "@/components/ui/alert-dialog"
-import { useState } from "react"
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 const formSchema = z.object({
   email: z.string().email("Invalid email address"),
@@ -37,8 +29,6 @@ const formSchema = z.object({
 })
 
 const PaymentTransferForm = ({ accounts }: PaymentTransferFormProps) => {
-  const [showDialog, setShowDialog] = useState(false)
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -52,7 +42,9 @@ const PaymentTransferForm = ({ accounts }: PaymentTransferFormProps) => {
 
   const submit = async () => {
     try {
-      setShowDialog(true)
+      toast.error(
+        "This feature is unavailable in the demo. Please contact us to request access to the full functionality."
+      )
     } catch (error) {
       console.error("Submitting create transfer request failed: ", error)
     }
@@ -208,29 +200,12 @@ const PaymentTransferForm = ({ accounts }: PaymentTransferFormProps) => {
         </div>
       </form>
 
-      {showDialog && (
-        <AlertDialog open={showDialog} onOpenChange={setShowDialog}>
-          <AlertDialogContent className="bg-white">
-            <AlertDialogHeader>
-              <AlertDialogTitle className="text-3xl font-bold mb-3">
-                Demo Version
-              </AlertDialogTitle>
-            </AlertDialogHeader>
-            <AlertDialogDescription className="text-md mb-3">
-              This feature is unavailable in the demo version. Please contact us
-              to request access and explore the full functionality.
-            </AlertDialogDescription>
-            <AlertDialogFooter>
-              <AlertDialogAction
-                onClick={() => setShowDialog(false)}
-                className="text-lg bg-bankGradient text-white"
-              >
-                OK
-              </AlertDialogAction>
-            </AlertDialogFooter>
-          </AlertDialogContent>
-        </AlertDialog>
-      )}
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar
+        style={{ width: "450px" }} // Adjust the width as needed
+      />
     </Form>
   )
 }

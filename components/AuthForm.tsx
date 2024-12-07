@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import Image from "next/image"
 import Link from "next/link"
@@ -11,22 +11,14 @@ import { Form } from "@/components/ui/form"
 import CustomInput from "./CustomInput"
 import { authFormSchema } from "@/lib/utils"
 import { demoUser } from "@/lib/demoData"
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from "@/components/ui/alert-dialog"
 import { useRouter } from "next/navigation"
 import Cookies from "js-cookie"
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 const AuthForm = ({ type }: { type: string }) => {
   const router = useRouter()
   const [user, setUser] = useState<User | null>(null)
-  const [showDialog, setShowDialog] = useState(false)
 
   const formSchema = authFormSchema(type)
 
@@ -40,7 +32,8 @@ const AuthForm = ({ type }: { type: string }) => {
 
   const onSubmit = async () => {
     try {
-      setShowDialog(true)
+      // Instead of showing a dialog, show a toast
+      toast.error("This feature is unavailable in the demo version. Please use the Live Demo!");
     } catch (error) {
       console.log(error)
     }
@@ -55,15 +48,15 @@ const AuthForm = ({ type }: { type: string }) => {
   return (
     <section className="auth-form">
       <header className="flex flex-col gap-5 md:gap-8">
-        <Link href="/" className="cursor-pointer flex items-center gap-1">
+        <Link href="/" className="cursor-pointer flex items-center gap-3">
           <Image
             src="/icons/logo.svg"
             width={34}
             height={34}
-            alt="Horizon logo"
+            alt="QuantumPay logo"
           />
-          <h1 className="text-26 font-ibm-plex-serif font-bold text-black-1">
-            Horizon
+          <h1 className="text-26 font-sans font-bold text-black-1">
+            QuantumPay
           </h1>
         </Link>
 
@@ -179,29 +172,8 @@ const AuthForm = ({ type }: { type: string }) => {
         </Link>
       </footer>
 
-      {showDialog && (
-        <AlertDialog open={showDialog} onOpenChange={setShowDialog}>
-          <AlertDialogContent className="bg-white">
-            <AlertDialogHeader>
-              <AlertDialogTitle className="text-3xl font-bold mb-3">
-                Demo Version
-              </AlertDialogTitle>
-            </AlertDialogHeader>
-            <AlertDialogDescription className="text-md mb-3">
-              This feature is unavailable in the demo version. Please use the
-              Live Demo!
-            </AlertDialogDescription>
-            <AlertDialogFooter>
-              <AlertDialogAction
-                onClick={() => setShowDialog(false)}
-                className="text-lg bg-bankGradient text-white"
-              >
-                OK
-              </AlertDialogAction>
-            </AlertDialogFooter>
-          </AlertDialogContent>
-        </AlertDialog>
-      )}
+      {/* Toast container to render toast notifications */}
+      <ToastContainer position="top-center" autoClose={3000} hideProgressBar  style={{ width: '450px' }}/>
     </section>
   )
 }
